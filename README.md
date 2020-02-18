@@ -18,7 +18,6 @@ From any local directory, clone or download this repo, `cd` into it and run the 
 ./install
 ```
 
-
 ### Notes
 
 * Do **not** execute the installation script with `sudo`
@@ -27,10 +26,22 @@ From any local directory, clone or download this repo, `cd` into it and run the 
 
 ### Installation options
 
-You can specify a version for IPFS (eg.: `v0.4.11`):
+
+You can specify a version for IPFS (eg.: `v0.4.23`):
 
 ```SHELL
-./install v0.4.11
+./install v0.4.23
+```
+### Error Solution
+
+./lib/functions.sh: line 12: rpm: command not found
+./install: line 58: whoami: command not found
+./install: line 61: [: ==: unary operator expected
+./install: line 74: [: ==: unary operator expected
+>>> Unable to detect init system - you don't seem to be using systemd or upstart. The IPFS daemon will have to be controlled manually.
+
+```sh
+cp ~/OpenWRT-IPFS/ipfs /usr/bin/
 ```
 
 ## IPFS usage
@@ -48,16 +59,16 @@ The IPFS daemon needs to be running in order for your IPFS node to appear online
 running the daemon on system startup by default, but if you want to control that process manually, you can use the
 operating system's init system directly.
 
-For `systemd` (Raspbian Stretch, Ubuntu 15.04 and newer, CentOS 7 and newer), you can use:
+For `systemd` (Raspbian Stretch, Ubuntu 18.04. and newer, CentOS 7 and newer), you can use:
 
 ```SHELL
-sudo systemctl {start|status|stop} ipfs-daemon.service
+systemctl {start|status|stop} ipfs-daemon.service
 ```
 
 For `upstart` (Ubuntu 9.10 to Ubuntu 14.10, Centos 6), you can use:
 
 ```SHELL
-sudo service ipfs-daemon {start|status|stop}
+service ipfs-daemon {start|status|stop}
 ```
 
 ## Uninstallation
@@ -87,4 +98,5 @@ If you want to upgrade to a newer version, run the installer again.
 * for bug reports, open a new issue
 * for code patches, open a pull request against the `development` branch
 * for bugs specific to IPFS, please refer to the [official channel](https://discuss.ipfs.io)
+
 # OpenWRT-IPFS
