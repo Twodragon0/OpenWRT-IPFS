@@ -1,17 +1,23 @@
-# IPFS RPi
+# IPFS using OpenWRT in RPi
 
-A bare bones [IPFS](https://ipfs.io) installer for the Raspberry Pi and other ARM-based devices.
+A bare bones [IPFS](https://ipfs.io) installer using OpenWRT for the Raspberry Pi and other ARM-based devices.
 
 ## Installation
 
 Log into your system with an administrator account, like the default OS user. For example, on the Raspberry Pi, most
 operating systems will default to the `pi` user, whereas on the Orange Pi that's going to be `orangepi`.
 
+
+```SHELL
+opkg update && opkg install git git-http curl wget bash
+```
+
 From any local directory, clone or download this repo, `cd` into it and run the installer:
 
 ```SHELL
 ./install
 ```
+
 
 ### Notes
 
