@@ -45,7 +45,7 @@ fi
 
 ipfs_destination=/usr/local/bin/ipfs
 tar xzf $tar_gz_destination -C /tmp
-sudo install /tmp/go-ipfs/ipfs $ipfs_destination
+./install /tmp/go-ipfs/ipfs $ipfs_destination
 
 echo ">>> Starting IPFS"
 
@@ -63,26 +63,26 @@ if [ $init_system == "systemd" ]; then
   sed "s|{{ipfs_path}}|${ipfs_path}|g" | \
   sed "s|{{ipfs_user}}|${ipfs_user}|g" | \
   sed "s|{{ipfs_group}}|${ipfs_group}|g" | \
-  sudo tee /lib/systemd/system/ipfs-daemon.service > /dev/null
+  tee /lib/systemd/system/ipfs-daemon.service > /dev/null
 
-  sudo systemctl daemon-reload
+  systemctl daemon-reload
   if [ "$mode" == "install" ]; then
     sudo systemctl enable --now ipfs-daemon
   elif [ "$mode" == "update" ]; then
-    sudo systemctl restart ipfs-daemon
+    systemctl restart ipfs-daemon
   fi
 elif [ $init_system == "upstart" ]; then
   cat ./templates/ipfs-daemon.conf.tpl | \
   sed "s|{{ipfs_path}}|${ipfs_path}|g" | \
   sed "s|{{ipfs_user}}|${ipfs_user}|g" | \
-  sudo tee /etc/init/ipfs-daemon.conf > /dev/null
+  tee /etc/init/ipfs-daemon.conf > /dev/null
 
-  sudo initctl reload-configuration
+  initctl reload-configuration
   if [ "$mode" == "install" ]; then
-    sudo service ipfs-daemon start
+    service ipfs-daemon start
   elif [ "$mode" == "update" ]; then
-    sudo service ipfs-daemon stop
-    sudo service ipfs-daemon start
+    service ipfs-daemon stop
+    service ipfs-daemon start
   fi
 else
   echo ">>> Unable to detect init system - you don't seem to be using systemd or upstart. The IPFS daemon will have to be controlled manually."
