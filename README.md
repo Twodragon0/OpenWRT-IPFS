@@ -34,11 +34,11 @@ You can specify a version for IPFS (eg.: `v0.4.23`):
 ```
 ### Error Solution
 
-./lib/functions.sh: line 12: rpm: command not found
-./install: line 58: whoami: command not found
-./install: line 61: [: ==: unary operator expected
-./install: line 74: [: ==: unary operator expected
->>> Unable to detect init system - you don't seem to be using systemd or upstart. The IPFS daemon will have to be controlled manually.
+* ./lib/functions.sh: line 12: rpm: command not found
+* ./install: line 58: whoami: command not found
+* ./install: line 61: [: ==: unary operator expected
+* ./install: line 74: [: ==: unary operator expected
+* >>> Unable to detect init system - you don't seem to be using systemd or upstart. The IPFS daemon will have to be controlled manually.
 
 ```sh
 cp ~/OpenWRT-IPFS/ipfs /usr/bin/
