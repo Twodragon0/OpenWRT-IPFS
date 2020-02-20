@@ -1,8 +1,3 @@
-# Requirement
-
-```SHELL
-opkg update && opkg install git git-http curl wget bash
-```
 
 # IPFS installation in Raspbian OS
 
@@ -27,9 +22,15 @@ You can specify a version for IPFS (eg.: `v0.4.23`):
 ./install v0.4.23
 ```
 
-## IPFS installaiton in OpenWRT OS
+# IPFS installaiton in OpenWRT OS
 
 A bare bones [IPFS](https://ipfs.io) installer using OpenWRT for the Raspberry Pi and other ARM-based devices.
+
+## Requirement
+
+```SHELL
+opkg update && opkg install git git-http curl wget bash
+```
 
 ### Error Solution
 
@@ -43,7 +44,7 @@ A bare bones [IPFS](https://ipfs.io) installer using OpenWRT for the Raspberry P
 mv ~/OpenWRT-IPFS/ipfs /usr/bin/
 ``` 
 
-## IPFS Installaiton in Untangle OS Router
+# IPFS Installaiton in Untangle OS Router
 
 ```sh
 sudo apt-get update
