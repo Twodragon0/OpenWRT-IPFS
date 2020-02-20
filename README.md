@@ -1,18 +1,13 @@
-# IPFS using OpenWRT in RPi
-
-A bare bones [IPFS](https://ipfs.io) installer using OpenWRT for the Raspberry Pi and other ARM-based devices.
-
-## Installation
-
-Log into your system with an administrator account, like the default OS user. For example, on the Raspberry Pi, most
-operating systems will default to the `pi` user, whereas on the Orange Pi that's going to be `orangepi`.
-
+# Requirement
 
 ```SHELL
 opkg update && opkg install git git-http curl wget bash
 ```
 
-From any local directory, clone or download this repo, `cd` into it and run the installer:
+# IPFS installation in Raspbian OS
+
+Log into your system with an administrator account, like the default OS user. For example, on the Raspberry Pi, most
+operating systems will default to the `pi` user, whereas on the Orange Pi that's going to be `orangepi`. From any local directory, clone or download this repo, `cd` into it and run the installer:
 
 ```SHELL
 ./install
@@ -26,12 +21,16 @@ From any local directory, clone or download this repo, `cd` into it and run the 
 
 ### Installation options
 
-
 You can specify a version for IPFS (eg.: `v0.4.23`):
 
 ```SHELL
 ./install v0.4.23
 ```
+
+## IPFS installaiton in OpenWRT OS
+
+A bare bones [IPFS](https://ipfs.io) installer using OpenWRT for the Raspberry Pi and other ARM-based devices.
+
 ### Error Solution
 
 * ./lib/functions.sh: line 12: rpm: command not found
@@ -41,7 +40,17 @@ You can specify a version for IPFS (eg.: `v0.4.23`):
 * >>> Unable to detect init system - you don't seem to be using systemd or upstart. The IPFS daemon will have to be controlled manually.
 
 ```sh
-cp ~/OpenWRT-IPFS/ipfs /usr/bin/
+mv ~/OpenWRT-IPFS/ipfs /usr/bin/
+``` 
+
+## IPFS Installaiton in Untangle OS Router
+
+```sh
+sudo apt-get update
+sudo apt-get install golang-go -y
+wget https://dist.ipfs.io/go-ipfs/v0.4.23/go-ipfs_v0.4.23_linux-amd64.tar.gz
+tar xvfz go-ipfs_v0.4.23_linux-amd64.tar.gz
+sudo mv go-ipfs/ipfs /usr/local/bin/ipfs
 ```
 
 ## IPFS usage
