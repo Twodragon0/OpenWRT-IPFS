@@ -22,7 +22,7 @@ You can specify a version for IPFS (eg.: `v0.4.23`):
 ./install v0.4.23
 ```
 
-# IPFS installaiton in OpenWRT OS
+# IPFS installaiton on OpenWRT Router
 
 A bare bones [IPFS](https://ipfs.io) installer using OpenWRT for the Raspberry Pi and other ARM-based devices.
 
@@ -44,7 +44,7 @@ opkg update && opkg install git git-http curl wget bash
 mv ~/OpenWRT-IPFS/ipfs /usr/bin/
 ``` 
 
-# IPFS Installaiton in Untangle OS Router
+# Go-ipfs installaiton on Untangle Router
 
 ```sh
 sudo apt-get update
@@ -53,6 +53,30 @@ wget https://dist.ipfs.io/go-ipfs/v0.4.23/go-ipfs_v0.4.23_linux-amd64.tar.gz
 tar xvfz go-ipfs_v0.4.23_linux-amd64.tar.gz
 sudo mv go-ipfs/ipfs /usr/local/bin/ipfs
 ```
+
+# Go-ipfs installaiton on pfSense Router
+
+Installing go-ipfs on FreeBSD-based pfSense is similar to running go-ipfs on any UNIX based system. First, go to Golang.org/dl to download the latest stable version of go and go-ipfs binary for FreeBSD. Then run the following commands on your system.
+
+```sh
+pkg update
+pkg install curl git
+cd /tmp
+curl -O https://dl.google.com/go/go1.14.freebsd-amd64.tar.gz
+curl -O https://dist.ipfs.io/go-ipfs/v0.4.23/go-ipfs_v0.4.23_freebsd-amd64.tar.gz
+tar -C /usr/local -xzf go1.14.freebsd-amd64.tar.gz
+tar -C go-ipfs_v0.4.23_freebsd-amd64.tar.gz
+```
+
+Then create the $path to the environment variable to create the following folders.
+
+```sh
+mkdir ~/.gopkg
+setenv GOPATH /root/.gopkg
+set path = ($path /usr/local/go/bin /root/.gopkg/bin)
+```
+Please reboot and then you can see go and go-ipfs command.
+
 
 ## IPFS usage
 
