@@ -44,7 +44,7 @@ opkg update && opkg install git git-http curl wget bash
 mv ~/OpenWRT-IPFS/ipfs /usr/bin/
 ``` 
 
-# Go-ipfs installaiton on Untangle Router
+# Go-ipfs installation on Untangle Router
 
 ```sh
 sudo apt-get update
@@ -54,7 +54,7 @@ tar xvfz go-ipfs_v0.4.23_linux-amd64.tar.gz
 sudo mv go-ipfs/ipfs /usr/local/bin/ipfs
 ```
 
-# Go-ipfs installaiton on pfSense Router
+# Go-ipfs installation on pfSense Router
 
 Installing go-ipfs on FreeBSD-based pfSense is similar to running go-ipfs on any UNIX based system. First, go to Golang.org/dl to download the latest stable version of go and go-ipfs binary for FreeBSD. Then run the following commands on your system.
 
